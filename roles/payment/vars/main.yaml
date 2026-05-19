@@ -1,0 +1,3 @@
+CART_HOST: cart.vishnuv8.shop
+USER_HOST: user.vishnuv8.shop
+RABBITMQ_HOST: rabbitmq.vishnuv8.shop
