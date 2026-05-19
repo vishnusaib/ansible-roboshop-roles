@@ -10,15 +10,15 @@
     path: /app
     state: directory
 
-- name: download catalogue code
+- name: "download {{ component }} code"
   ansible.builtin.get_url:
-    url: https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip
-    dest: /tmp/catalogue.zip
+    url: "https://roboshop-artifacts.s3.amazonaws.com/{{ component }}-v3.zip"
+    dest: /tmp/"{{ component }}".zip
 
 # this thinks file is exist in ansible control server
-# so we need to use remote_src: yes means files already exist in catalogue server  
-- name: Extract catalogue code
+# so we need to use remote_src: yes means files already exist in "{{ component }}" server  
+- name: "Extract {{ component }} code"
   ansible.builtin.unarchive:
-    src: /tmp/catalogue.zip
+    src: "/tmp/{{ component }}.zip"
     dest: /app
     remote_src: yes
