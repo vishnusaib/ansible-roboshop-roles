@@ -1,3 +1,5 @@
 CATALOGUE_HOST: catalogue.vishnuv8.shop
 CART_HOST: cart.vishnuv8.shop
 USER_HOST: user.vishnuv8.shop
+SHIPPING_HOST: shipping.vishnuv8.shop
+PAYMENT_HOST: payment.vishnuv8.shop

@@ -1,0 +1,36 @@
+- name: maven setup
+  include_role:
+    name: common
+    tasks_from: maven.yaml
+
+- name: app-setup
+  include_role:
+    name: common
+    tasks_from: app-setup.yaml
+
+# - name: connect to mysql using app user
+#   community.mysql.mysql_info:
+#     login_user: shipping
+#     login_password: RoboShop@1
+#     login_hosts: mysql.vishnuv8.shop
+#     login_db: cities
+
+- name: import data
+  tags:
+  - import
+  community.mysql.mysql_db:
+    name: all
+    login_user: "{{ MYSQL_ROOT_USER }}"
+    login_password: "{{ MYSQL_ROOT_PASSWD }}"
+    login_hosts: "{{ MYSQL_HOST }}"
+    state: import
+    target: "{{ item }}"
+  loop:
+  - /app/db/schema.sql
+  - /app/db/app-user.sql
+  - /app/db/master-data.sql
+
+- name: system d setup
+  include_role:
+    name: common
+    tasks_from: system.yaml

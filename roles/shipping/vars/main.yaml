@@ -1,0 +1,4 @@
+MYSQL_ROOT_USER : root
+MYSQL_ROOT_PASSWD: RoboShop@1
+MYSQL_HOST: mysql.vishnuv8.shop
+CART_HOST: cart.vishnuv8.shop
